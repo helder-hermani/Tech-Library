@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TechLibrary.communication\TechLibrary.communication.csproj" />
+    <ProjectReference Include="..\TechLibrary.Exceptions\TechLibrary.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>
