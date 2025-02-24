@@ -11,8 +11,8 @@ namespace Tech_Library_Api.Controllers
     public class UsersController : ControllerBase
     {
         [HttpPost("criar-usuario")]
-        [ProducesResponseType(typeof(ResponseRegisteredUserJson),StatusCodes.Status201Created)]
-        [ProducesResponseType(typeof(ResponseErrorMessageJson),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ResponseErrorMessageJson), StatusCodes.Status400BadRequest)]
         public IActionResult CreateUser(RequestUserJson request)
         {
 
@@ -27,6 +27,14 @@ namespace Tech_Library_Api.Controllers
                 var listaErros = new ResponseErrorMessageJson { Errors = ex.GetErrorsMessages() };
                 return BadRequest(listaErros);
             }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new ResponseErrorMessageJson
+                    {
+                    Errors = ["Erro interno no servidor"]
+                });
+            }
 
+        }
     }
 }
