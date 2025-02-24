@@ -1,10 +1,13 @@
 
+using DotNetEnv;
+
 namespace Tech_Library_Api
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+            Env.Load();
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllers();
