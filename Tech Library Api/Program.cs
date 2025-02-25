@@ -1,5 +1,6 @@
 
 using DotNetEnv;
+using Tech_Library_Api.Filters;
 
 namespace Tech_Library_Api
 {
@@ -13,6 +14,8 @@ namespace Tech_Library_Api
             builder.Services.AddControllers();
             builder.Services.AddOpenApi();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
             var app = builder.Build();
 

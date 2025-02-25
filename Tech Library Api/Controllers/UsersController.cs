@@ -16,24 +16,24 @@ namespace Tech_Library_Api.Controllers
         public IActionResult CreateUser(RequestUserJson request)
         {
 
-            try
-            {
+            //try
+            //{
                 var useCase = new RegisterUserUseCase();
                 var response = useCase.Execute(request);
                 return Created(string.Empty, response);
-            }
-            catch (TechLibraryException ex)
-            {
-                var listaErros = new ResponseErrorMessageJson { Errors = ex.GetErrorsMessages() };
-                return BadRequest(listaErros);
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new ResponseErrorMessageJson
-                    {
-                    Errors = ["Erro interno no servidor"]
-                });
-            }
+            //}
+            //catch (TechLibraryException ex)
+            //{
+            //    var listaErros = new ResponseErrorMessageJson { Errors = ex.GetErrorsMessages() };
+            //    return BadRequest(listaErros);
+            //}
+            //catch
+            //{
+            //    return StatusCode(StatusCodes.Status500InternalServerError, new ResponseErrorMessageJson
+            //        {
+            //        Errors = ["Erro interno no servidor"]
+            //    });
+            //}
 
         }
     }
