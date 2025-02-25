@@ -6,7 +6,7 @@ namespace TechLibrary.Exceptions
     {
         private readonly List<string> _errors;   //readonly indica que apenas o construtor pode alterar o valor da variável
 
-        public ErrorOnValidationException(List<string> ErrorMessages)
+        public ErrorOnValidationException(List<string> ErrorMessages) : base(string.Empty)
         {
             _errors = ErrorMessages;
         }
