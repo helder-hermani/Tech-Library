@@ -32,6 +32,11 @@ namespace Tech_Library_Api.Security.Tokens.Access
             return tokenHandler.WriteToken(securityToken);
         }
 
+        public static SymmetricSecurityKey GetSecurityKey()
+        {
+            return SecurityKey();
+        }
+
         private static SymmetricSecurityKey SecurityKey()
         {
             var signinKey = Env.GetString("API_KEY");
